@@ -1,0 +1,13 @@
+{
+  "name": "ntfy",
+  "version": "0.1.0",
+  "description": "Send Claude Code notifications via ntfy",
+  "author": {
+    "name": "Fabian Linzberger"
+  },
+  "keywords": [
+    "notifications",
+    "ntfy",
+    "hooks"
+  ]
+}
