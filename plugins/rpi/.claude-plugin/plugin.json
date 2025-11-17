@@ -1,0 +1,15 @@
+{
+  "name": "rpi",
+  "version": "0.1.0",
+  "description": "HumanLayer-style RPI toolkit with agents and commands for research/plan/implement flows.",
+  "author": {
+    "name": "Fabian Linzberger"
+  },
+  "keywords": [
+    "rpi",
+    "humanlayer",
+    "research",
+    "planning",
+    "agents"
+  ]
+}
