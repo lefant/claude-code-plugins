@@ -1,0 +1,33 @@
+{
+  "name": "lefant-claude-code-plugins",
+  "owner": {
+    "name": "Fabian Linzberger"
+  },
+  "plugins": [
+    {
+      "name": "context7",
+      "source": "./plugins/context7",
+      "description": "Context7 MCP server for up-to-date library documentation"
+    },
+    {
+      "name": "github-access",
+      "source": "./plugins/github-access",
+      "description": "GitHub access Skill with gh/REST paths"
+    },
+    {
+      "name": "lefant",
+      "source": "./plugins/lefant",
+      "description": "Utility commands: devlog and handover"
+    },
+    {
+      "name": "ntfy",
+      "source": "./plugins/ntfy",
+      "description": "Send Claude Code notifications via ntfy"
+    },
+    {
+      "name": "rpi",
+      "source": "./plugins/rpi",
+      "description": "HumanLayer-style research/plan/implement agents and commands"
+    }
+  ]
+}
