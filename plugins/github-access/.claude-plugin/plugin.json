@@ -1,0 +1,14 @@
+{
+  "name": "github-access",
+  "version": "0.1.0",
+  "description": "GitHub access Skill with GH CLI and REST API fallbacks.",
+  "author": {
+    "name": "Fabian Linzberger"
+  },
+  "keywords": [
+    "github",
+    "gh",
+    "rest-api",
+    "automation"
+  ]
+}
