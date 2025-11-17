@@ -1,0 +1,13 @@
+{
+  "name": "lefant",
+  "version": "0.1.0",
+  "description": "Miscellaneous commands like devlog and handover.",
+  "author": {
+    "name": "Fabian Linzberger"
+  },
+  "keywords": [
+    "utility",
+    "handover",
+    "logging"
+  ]
+}
