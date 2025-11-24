@@ -1,6 +1,5 @@
 ---
 description: Document codebase as-is without evaluation or recommendations
-model: opus
 ---
 
 # Research Codebase
