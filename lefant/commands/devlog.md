@@ -13,9 +13,8 @@ Extra user prompt: $ARGUMENTS
 1. **Determine target directory**: Use --local for personal implementations, --shared (default) for team implementations
 2. **Generate entry**: Implementation outcome summary following template below
 3. **Write to thoughts devlog**: `thoughts/shared/devlog/YYYY-MM-DD_implementation.md` or `thoughts/local/devlog/YYYY-MM-DD_implementation.md`
-4. **Update CHANGELOG.md**: Add reference to devlog entry with brief description in appropriate category (Added/Changed/Fixed/etc.)
-5. **Update SUMMARY.md**: Update current feature status and progress (if appropriate)
-6. **Perform context compaction**: Reset conversation length
+4. **Create CHANGELOG fragment**: Add fragment in `CHANGELOG/` directory with implementation summary
+5. **Perform context compaction**: Reset conversation length
 
 ## Filename Convention
 
@@ -165,30 +164,26 @@ Successfully implemented the OAuth token storage system with compression and enc
 - **--local**: `thoughts/local/devlog/` - for personal implementation experiments
 - **Auto-create**: Creates directory structure if it doesn't exist
 
-## CHANGELOG Integration
-After creating a devlog entry, update `CHANGELOG.md` in the project root:
+## CHANGELOG Fragment
+After creating a devlog entry, create a CHANGELOG fragment in the `CHANGELOG/` directory:
 
-1. **Choose appropriate category**: Added/Changed/Fixed/Removed/Deprecated/Security
-2. **Add brief description**: 1-2 sentences summarizing the implementation
-3. **Link to devlog**: Include relative path to the devlog entry for detailed documentation
-4. **Place in Unreleased**: Add to the `## [Unreleased]` section at the top
+1. **Filename**: Use devlog date and slug (e.g., `2025-09-26_oauth-storage-implementation.md`)
+2. **Format**: Use CHANGELOG fragment template (see `/skill changelog` for template)
+3. **Content**: Brief summary with link to detailed devlog entry
+4. **Type**: Choose appropriate type (feature/fix/chore/docs/refactor/test/perf)
 
-**Example CHANGELOG entry:**
+**Example CHANGELOG fragment:**
 ```markdown
-### Added
-- OAuth token storage with encryption and compression [devlog](thoughts/shared/devlog/2025-09-26_oauth-storage-implementation.md)
+---
+date: 2025-09-26
+type: feature
+related_devlog: thoughts/shared/devlog/2025-09-26_oauth-storage-implementation.md
+---
+
+Implemented OAuth token storage with encryption and compression for multiple providers (Google, GitHub, Notion). Tokens are stored in Stack Auth metadata with AES-256-GCM encryption and compression for size optimization.
 ```
 
-**Note**: Only update CHANGELOG.md for --shared devlogs (team implementations). Skip for --local personal experiments.
-
-## SUMMARY.md Integration
-After creating a devlog entry, update `SUMMARY.md` if appropriate:
-
-1. **Update feature status**: Change status if implementation is completed
-2. **Update progress notes**: Add brief note about what was accomplished
-3. **Update blockers/next steps**: Reflect current state
-
-**Note**: Only update SUMMARY.md for significant implementation milestones that affect project status.
+**Note**: Only create CHANGELOG fragments for --shared devlogs (team implementations). Skip for --local personal experiments.
 
 ## Workflow Context
 This is the **fourth step** in the development workflow:
