@@ -165,10 +165,24 @@ Successfully implemented the OAuth token storage system with compression and enc
 - **Auto-create**: Creates directory structure if it doesn't exist
 
 ## CHANGELOG Fragment
-After creating a devlog entry, create a CHANGELOG fragment in the `CHANGELOG/` directory:
+
+After creating a devlog entry, create a CHANGELOG fragment in the `CHANGELOG/` directory.
+
+**Use the changelog-fragments skill for complete guidance:**
+```
+/skill changelog-fragments
+```
+
+The skill provides:
+- Fragment template and format
+- Naming conventions
+- When to create fragments
+- Example fragments
+
+**Quick reference:**
 
 1. **Filename**: Use devlog date and slug (e.g., `2025-09-26_oauth-storage-implementation.md`)
-2. **Format**: Use CHANGELOG fragment template (see `/skill changelog` for template)
+2. **Format**: See skill for complete template
 3. **Content**: Brief summary with link to detailed devlog entry
 4. **Type**: Choose appropriate type (feature/fix/chore/docs/refactor/test/perf)
 

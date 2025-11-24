@@ -2,6 +2,8 @@
 
 Use this skill when creating or working with CHANGELOG fragments. CHANGELOG fragments are ongoing documentation of changes, stored in the `CHANGELOG/` directory.
 
+**Access this skill with:** `/skill changelog-fragments`
+
 ## Purpose
 
 Using changelog fragments prevents merge conflicts in CHANGELOG.md when multiple feature branches are developed in parallel. Each change creates its own fragment file, which stays as permanent documentation rather than being archived.
@@ -118,9 +120,9 @@ ls -1 CHANGELOG/2025-*.md | tail -10
 
 ## Template and Examples
 
-**Template location**: `lefant-claude-code-plugins/lefant/skills/changelog/template.md`
+**Template location**: `lefant-claude-code-plugins/lefant/skills/changelog-fragments/template.md`
 
-**Example fragments**: See `lefant-claude-code-plugins/lefant/skills/changelog/examples/` for:
+**Example fragments**: See `lefant-claude-code-plugins/lefant/skills/changelog-fragments/examples/` for:
 - `feature-example.md` - Feature implementation with database tracking
 - `fix-example.md` - Bug fix with environment variable mismatch
 - `chore-example.md` - Simple maintenance task
