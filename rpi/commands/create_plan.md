@@ -1,5 +1,6 @@
 ---
 description: Create implementation plans with thorough research (no thoughts directory)
+model: claude-opus-4-5-20251101
 ---
 
 # Implementation Plan

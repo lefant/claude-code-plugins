@@ -1,5 +1,6 @@
 ---
 description: Document codebase as-is without evaluation or recommendations
+model: claude-opus-4-5-20251101
 ---
 
 # Research Codebase
