@@ -5,6 +5,11 @@
   },
   "plugins": [
     {
+      "name": "beads",
+      "source": "./beads",
+      "description": "Beads plugin with skill instead of MCP server"
+    },
+    {
       "name": "context7",
       "source": "./context7",
       "description": "Context7 MCP server for up-to-date library documentation"
