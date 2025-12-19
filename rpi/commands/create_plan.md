@@ -55,7 +55,7 @@ Then wait for the user's input.
 
    These agents will:
    - Find relevant source files, configs, and tests
-   - Identify the specific directories to focus on (e.g., if WUI is mentioned, they'll focus on humanlayer-wui/)
+   - Identify the specific directories to focus on
    - Trace data flow and key functions
    - Return detailed explanations with file:line references
 
@@ -220,11 +220,11 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] Migration applies cleanly: `make migrate`
-- [ ] Unit tests pass: `make test-component`
-- [ ] Type checking passes: `npm run typecheck`
-- [ ] Linting passes: `make lint`
-- [ ] Integration tests pass: `make test-integration`
+- [ ] Migration applies cleanly
+- [ ] Unit tests pass
+- [ ] Type checking passes
+- [ ] Linting passes
+- [ ] Integration tests pass
 
 #### Manual Verification:
 - [ ] Feature works as expected when tested via UI
@@ -312,7 +312,6 @@ After structure approval:
    - Research actual code patterns using parallel sub-tasks
    - Include specific file paths and line numbers
    - Write measurable success criteria with clear automated vs manual distinction
-   - automated steps should use `make` whenever possible - for example `make -C humanlayer-wui check` instead of `cd humanlayer-wui && bun run fmt`
 
 4. **Be Practical**:
    - Focus on incremental, testable changes
@@ -337,7 +336,7 @@ After structure approval:
 **Always separate success criteria into two categories:**
 
 1. **Automated Verification** (can be run by execution agents):
-   - Commands that can be run: `make test`, `npm run lint`, etc.
+   - Commands that can be run: `npm run lint`, etc.
    - Specific files that should exist
    - Code compilation/type checking
    - Automated test suites
@@ -353,7 +352,6 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] Database migration runs successfully: `make migrate`
 - [ ] All unit tests pass: `go test ./...`
 - [ ] No linting errors: `golangci-lint run`
 - [ ] API endpoint returns 200: `curl localhost:8080/api/new-endpoint`
@@ -399,9 +397,6 @@ When spawning research sub-tasks:
    - What information to extract
    - Expected output format
 4. **Be EXTREMELY specific about directories**:
-   - If the ticket mentions "WUI", specify `humanlayer-wui/` directory
-   - If it mentions "daemon", specify `hld/` directory
-   - Never use generic terms like "UI" when you mean "WUI"
    - Include the full path context in your prompts
 5. **Specify read-only tools** to use
 6. **Request specific file:line references** in responses
