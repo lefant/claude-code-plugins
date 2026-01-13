@@ -201,8 +201,8 @@ Implemented OAuth token storage with encryption and compression for multiple pro
 
 ## Workflow Context
 This is the **fourth step** in the development workflow:
-1. **Research** (`/research_codebase_generic`) → documents current state and patterns
-2. **Plan** (`/create_plan_generic`) → creates implementation strategy
+1. **Research** (`/research_codebase`) → documents current state and patterns
+2. **Plan** (`/create_plan`) → creates implementation strategy
 3. **Implement** (`/implement_plan`) → builds the solution
 4. **Devlog** (`/devlog`) → captures implementation outcomes and learnings
 

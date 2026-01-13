@@ -244,8 +244,8 @@ Focus areas:
 ## Integration with Workflow
 
 This command bridges implementation sessions:
-1. **Research** (`/research_codebase_generic`) → documents patterns
-2. **Plan** (`/create_plan_generic`) → creates strategy
+1. **Research** (`/research_codebase`) → documents patterns
+2. **Plan** (`/create_plan`) → creates strategy
 3. **Implement** (`/implement_plan`) → builds solution
 4. **Handover** (`/handover`) → documents progress and enables resumption
 5. **Continue** → resume with `/implement_plan` from handover prompt
