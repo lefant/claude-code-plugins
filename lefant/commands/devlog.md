@@ -13,7 +13,7 @@ Extra user prompt: $ARGUMENTS
 1. **Determine target directory**: Use --local for personal implementations, --shared (default) for team implementations
 2. **Generate entry**: Implementation outcome summary following template below
 3. **Write to thoughts devlog**: `thoughts/shared/devlog/YYYY-MM-DD_implementation.md` or `thoughts/local/devlog/YYYY-MM-DD_implementation.md`
-4. **Create CHANGELOG fragment**: Add fragment in `CHANGELOG/` directory with implementation summary
+4. **Create CHANGELOG fragment**: Add fragment in `docs/changelog/` directory with implementation summary
 5. **Perform context compaction**: Reset conversation length
 
 ## Filename Convention
@@ -166,7 +166,7 @@ Successfully implemented the OAuth token storage system with compression and enc
 
 ## CHANGELOG Fragment
 
-After creating a devlog entry, create a CHANGELOG fragment in the `CHANGELOG/` directory.
+After creating a devlog entry, create a CHANGELOG fragment in the `docs/changelog/` directory.
 
 **Use the changelog-fragments skill for complete guidance:**
 ```

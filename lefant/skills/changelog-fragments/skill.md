@@ -1,6 +1,6 @@
 # CHANGELOG Fragments Skill
 
-Use this skill when creating or working with CHANGELOG fragments. CHANGELOG fragments are ongoing documentation of changes, stored in the `CHANGELOG/` directory.
+Use this skill when creating or working with CHANGELOG fragments. CHANGELOG fragments are ongoing documentation of changes, stored in the `docs/changelog/` directory.
 
 **Access this skill with:** `/skill changelog-fragments`
 
@@ -88,7 +88,7 @@ Skip fragments for:
 
 ## Using Fragments
 
-Fragments are ongoing documentation and stay in the `CHANGELOG/` directory permanently. They provide:
+Fragments are ongoing documentation and stay in the `docs/changelog/` directory permanently. They provide:
 - Chronological history of changes
 - Searchable documentation (`grep` through fragments)
 - Links to detailed devlogs
@@ -96,17 +96,17 @@ Fragments are ongoing documentation and stay in the `CHANGELOG/` directory perma
 
 To find when something changed:
 ```bash
-grep -r "search term" CHANGELOG/
+grep -r "search term" docs/changelog/
 ```
 
 To see all changes of a specific type:
 ```bash
-grep "^type: feature" CHANGELOG/*.md
+grep "^type: feature" docs/changelog/*.md
 ```
 
 To list recent changes chronologically:
 ```bash
-ls -1 CHANGELOG/2025-*.md | tail -10
+ls -1 docs/changelog/2025-*.md | tail -10
 ```
 
 ## Benefits of This Approach
@@ -132,7 +132,7 @@ ls -1 CHANGELOG/2025-*.md | tail -10
 When using `/devlog` for shared implementations:
 
 1. **Create devlog entry**: `thoughts/shared/devlog/YYYY-MM-DD_implementation.md`
-2. **Create CHANGELOG fragment**: `CHANGELOG/YYYY-MM-DD_implementation.md`
+2. **Create CHANGELOG fragment**: `docs/changelog/YYYY-MM-DD_implementation.md`
 3. **Use same date and slug**: Maintains consistency
 4. **Link them**: Add `related_devlog` field in fragment frontmatter
 5. **Keep summaries aligned**: Fragment = user-facing summary, devlog = technical details
@@ -143,7 +143,7 @@ When using `/devlog` for shared implementations:
 # thoughts/shared/devlog/2025-11-20_oauth-token-refresh.md
 
 # Create corresponding fragment
-# CHANGELOG/2025-11-20_oauth-token-refresh.md
+# docs/changelog/2025-11-20_oauth-token-refresh.md
 ---
 date: 2025-11-20
 type: feature
@@ -163,5 +163,5 @@ When creating a fragment:
 - [ ] Link to devlog if available (`related_devlog` field)
 - [ ] Add details section if change needs explanation
 - [ ] Link related issues/PRs if applicable
-- [ ] Save to `CHANGELOG/` directory
+- [ ] Save to `docs/changelog/` directory
 - [ ] Commit with the implementation
