@@ -394,18 +394,18 @@ jq -r '.results.tests[].name' file.ctrf.json | grep "specific pattern"
 
 2. If failures > 0, get failure details:
    ```bash
-   just test-failures
+   jq -r '.results.tests[] | select(.status == "failed") | "❌ \(.name)\n   Error: \(.message // "No message")\n"' /workspace/artifacts/test/*.ctrf.json
    ```
 
 3. Identify slow tests for optimization:
    ```bash
-   just test-slowest 10
+   jq -r '.results.tests | sort_by(.duration) | reverse | limit(10; .[]) | "⏱️  \(.duration)ms - \(.name)"' /workspace/artifacts/test/*.ctrf.json
    ```
 
 ### Root Cause Analysis
 1. Group failures by error message:
    ```bash
-   just test-analyze
+   jq '[.results.tests[] | select(.status == "failed")] | group_by(.message) | map({error: .[0].message, count: length, tests: map(.name)}) | sort_by(.count) | reverse' /workspace/artifacts/test/*.ctrf.json
    ```
 
 2. Find which files contain the most failures:

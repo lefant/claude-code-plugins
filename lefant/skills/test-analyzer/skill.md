@@ -20,25 +20,19 @@ Call this skill when:
 
 ## Quick Reference
 
-**Just recipes (shortcuts):**
+**Using ctrf-utils.sh:**
 ```bash
-just test-summary      # Overall summary
-just test-failures     # Failed tests only
-just test-flaky        # Flaky tests
-just test-slowest 5    # 5 slowest tests
-just test-analyze      # Pattern analysis
+ctrf-utils.sh summary <file>           # Show pass/fail summary
+ctrf-utils.sh failures <file...>       # List failed test names
+ctrf-utils.sh failures-detail <file>   # Show failures with error messages
+ctrf-utils.sh flaky <file>             # Show tests with retry attempts
+ctrf-utils.sh slowest <N> <file>       # Show N slowest tests
 ```
 
-**Direct jq commands (from skill directory):**
+**Direct jq commands:**
 ```bash
-./ctrf-utils.sh summary /workspace/artifacts/test/notion-paper-sync.ctrf.json
-./ctrf-utils.sh failures-detail /workspace/artifacts/test/*.ctrf.json
-```
-
-**Or from repository root:**
-```bash
-./scripts/ctrf-utils.sh summary /workspace/artifacts/test/notion-paper-sync.ctrf.json
-./scripts/ctrf-utils.sh failures-detail /workspace/artifacts/test/*.ctrf.json
+jq '.results.summary' report.ctrf.json
+jq -r '.results.tests[] | select(.status == "failed") | .name' report.ctrf.json
 ```
 
 ## CTRF Schema Overview
@@ -142,21 +136,23 @@ Context and research behind this approach:
 
 When invoked:
 
-1. **Check for CTRF reports:**
+1. **Locate CTRF reports** (common locations: `artifacts/test/`, `test-results/`, project root)
+
+2. **Get summary:**
    ```bash
-   ls -la /workspace/artifacts/test/*.ctrf.json
+   jq -r '.results.summary | "Tests: \(.tests) | Passed: \(.passed) | Failed: \(.failed)"' *.ctrf.json
    ```
 
-2. **Quick summary:**
+3. **If failures exist, list them:**
    ```bash
-   just test-summary
+   jq -r '.results.tests[] | select(.status == "failed") | "❌ \(.name): \(.message // "No message")"' *.ctrf.json
    ```
 
-3. **If failures exist, analyze patterns:**
+4. **Analyze patterns** (group similar errors):
    ```bash
-   just test-analyze
+   jq '[.results.tests[] | select(.status == "failed")] | group_by(.message) | map({error: .[0].message, count: length})' *.ctrf.json
    ```
 
-4. **Read source files for failed tests** (extract file paths with jq, then read)
+5. **Read source files for failed tests** (extract file paths with jq, then read)
 
-5. **Suggest fixes based on patterns** (group similar errors, identify root causes)
+6. **Suggest fixes based on patterns** (group similar errors, identify root causes)
