@@ -1,7 +1,7 @@
 {
   "name": "lefant",
   "version": "0.3.0",
-  "description": "lefant ai coding helpers. /devlog and /handover commands. adr, spec and changelog skills and commands",
+  "description": "lefant ai coding helpers. /devlog and /handover commands. adr, spec, changelog and youtube-transcript skills and commands",
   "author": {
     "name": "Fabian Linzberger"
   }
