@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { SENTRY_API_BASE, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
+import { getSentryApiBase, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
 
 const HELP = `Usage: fetch-event.js <event-id> [options]
 
@@ -310,7 +310,7 @@ async function main() {
 
   const token = getAuthToken();
 
-  const url = `${SENTRY_API_BASE}/projects/${encodeURIComponent(options.org)}/${encodeURIComponent(options.project)}/events/${encodeURIComponent(options.eventId)}/`;
+  const url = `${getSentryApiBase()}/projects/${encodeURIComponent(options.org)}/${encodeURIComponent(options.project)}/events/${encodeURIComponent(options.eventId)}/`;
 
   try {
     const event = await fetchJson(url, token);

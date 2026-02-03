@@ -5,9 +5,45 @@ description: "Fetch and analyze Sentry issues, events, transactions, and logs. H
 
 # Sentry Skill
 
-Access Sentry data via the API for debugging and investigation. Uses auth token from `~/.sentryclirc`.
+Access Sentry data via the API for debugging and investigation.
 
-> **Attribution:** This skill is forked from [mitsuhiko/agent-stuff](https://github.com/mitsuhiko/agent-stuff) by Armin Ronacher.
+## Authentication
+
+The skill supports multiple authentication methods (checked in order):
+
+### Option 1: Environment Variables (recommended for CI/containers)
+
+```bash
+export SENTRY_AUTH_TOKEN="your-token-here"
+export SENTRY_URL="https://de.sentry.io"  # For EU region (optional)
+```
+
+### Option 2: Config File (`~/.sentryclirc`)
+
+```ini
+[auth]
+token=your-token-here
+url=https://de.sentry.io  # For EU region (optional)
+```
+
+Create via `sentry-cli login` or manually.
+
+### Token Permissions
+
+Create a token at https://sentry.io/settings/account/api/auth-tokens/ with scopes:
+- `project:read`
+- `event:read`
+- `org:read`
+
+### Region Support
+
+The skill auto-detects the region from:
+1. `SENTRY_URL` environment variable
+2. `url=` in `~/.sentryclirc`
+3. Region embedded in new-style tokens (`sntrys_...`)
+4. Defaults to US (`sentry.io`)
+
+For EU: use `https://de.sentry.io`
 
 ## Quick Reference
 

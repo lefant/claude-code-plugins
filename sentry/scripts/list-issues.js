@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { SENTRY_API_BASE, getAuthToken, fetchJson, formatTimestamp, resolveProjectId } from "../lib/auth.js";
+import { getSentryApiBase, getAuthToken, fetchJson, formatTimestamp, resolveProjectId } from "../lib/auth.js";
 
 const HELP = `Usage: list-issues.js [options]
 
@@ -220,7 +220,7 @@ async function main() {
     const projectId = await resolveProjectId(options.org, project, token);
     params.append("project", projectId);
   }
-  const url = `${SENTRY_API_BASE}/organizations/${encodeURIComponent(options.org)}/issues/?${params.toString()}`;
+  const url = `${getSentryApiBase()}/organizations/${encodeURIComponent(options.org)}/issues/?${params.toString()}`;
 
   try {
     const data = await fetchJson(url, token);

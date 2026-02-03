@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { SENTRY_API_BASE, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
+import { getSentryApiBase, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
 
 function parseIssueInput(input) {
   // Full URL: https://sentry.io/organizations/sentry/issues/5765604106/
@@ -315,7 +315,7 @@ async function main() {
         process.exit(1);
       }
       // Use the shortids endpoint to resolve the short ID
-      const shortIdUrl = `${SENTRY_API_BASE}/organizations/${org}/shortids/${encodeURIComponent(parsed.shortId)}/`;
+      const shortIdUrl = `${getSentryApiBase()}/organizations/${org}/shortids/${encodeURIComponent(parsed.shortId)}/`;
       const result = await fetchJson(shortIdUrl, token);
       if (!result || !result.group) {
         console.error(`Error: Issue ${parsed.shortId} not found`);
@@ -323,7 +323,7 @@ async function main() {
       }
       issue = result.group;
     } else {
-      const issueUrl = `${SENTRY_API_BASE}/issues/${parsed.issueId}/`;
+      const issueUrl = `${getSentryApiBase()}/issues/${parsed.issueId}/`;
       issue = await fetchJson(issueUrl, token);
     }
 
@@ -335,7 +335,7 @@ async function main() {
     let output = formatIssue(issue);
 
     if (wantLatest) {
-      const eventUrl = `${SENTRY_API_BASE}/issues/${issue.id}/events/latest/`;
+      const eventUrl = `${getSentryApiBase()}/issues/${issue.id}/events/latest/`;
       const event = await fetchJson(eventUrl, token);
 
       if (wantJson) {

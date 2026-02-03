@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { SENTRY_API_BASE, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
+import { getSentryApiBase, getAuthToken, fetchJson, formatTimestamp } from "../lib/auth.js";
 
 const LOG_FIELDS = [
   "sentry.item_id",
@@ -221,7 +221,7 @@ async function main() {
     params.set("query", queryParts.join(" "));
   }
 
-  const url = `${SENTRY_API_BASE}/organizations/${encodeURIComponent(options.org)}/events/?${params.toString()}`;
+  const url = `${getSentryApiBase()}/organizations/${encodeURIComponent(options.org)}/events/?${params.toString()}`;
 
   try {
     const data = await fetchJson(url, token);
