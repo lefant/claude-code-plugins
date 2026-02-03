@@ -28,6 +28,11 @@
       "name": "rpi",
       "source": "./rpi",
       "description": "HumanLayer-style research/plan/implement agents and commands"
+    },
+    {
+      "name": "sentry",
+      "source": "./sentry",
+      "description": "Fetch and analyze Sentry issues, events, transactions, and logs"
     }
   ]
 }
