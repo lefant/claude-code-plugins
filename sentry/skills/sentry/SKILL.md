@@ -54,6 +54,7 @@ For EU: use `https://de.sentry.io`
 | Get issue details | `fetch-issue.js <issue-id-or-url> --latest` |
 | Get event details | `fetch-event.js <event-id> --org X --project Y` |
 | Search logs | `search-logs.js --org X --project Y "level:error"` |
+| List releases | `list-releases.js --org X [--env vercel-production] [--commit <sha>]` |
 
 ## Common Debugging Workflows
 
