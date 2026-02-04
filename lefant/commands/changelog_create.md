@@ -32,8 +32,7 @@ Extra user prompt: $ARGUMENTS
 
 ## Template
 
-Use the template from the `changelog-fragments` skill:
-`lefant/skills/changelog-fragments/template.md`
+Use the template from the `changelog-fragments` skill (installed from `lefant/agent-skills`).
 
 ## Process
 

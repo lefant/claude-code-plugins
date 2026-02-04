@@ -22,13 +22,13 @@ Extra user prompt: $ARGUMENTS
 - Check if specs were referenced in plans or discussed in the session
 - If a spec exists in `docs/specs/`, verify implementation aligns with requirements
 - If implementation diverged from spec, update the spec (living document)
-- See: `/skill feature-specs`
+- See: `feature-specs` skill (from `lefant/agent-skills`)
 
 ### 4. Capture architectural decisions (optional)
 - Review session for architectural decisions that emerged during implementation
 - Technology choices, significant tradeoffs, or design patterns worth documenting
 - If decision is significant, create ADR: `/adr_create [title]`
-- See: `/skill architecture-decision-records`
+- See: `architecture-decision-records` skill (from `lefant/agent-skills`)
 
 ### 5. Create devlog
 - Run `/lefant:devlog` to document implementation outcome
@@ -43,7 +43,7 @@ Extra user prompt: $ARGUMENTS
   - `related_devlog`: devlog just created
   - `related_research`: research from `thoughts/shared/research/`
   - `related_issues`: GitHub issues or beads
-- See: `/skill changelog-fragments`
+- See: `changelog-fragments` skill (from `lefant/agent-skills`)
 
 ### 7. Commit documentation
 - Commit the updated plan, .beads, devlog, and any new specs/ADRs/changelog files to git

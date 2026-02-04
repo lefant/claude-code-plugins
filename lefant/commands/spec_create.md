@@ -29,8 +29,7 @@ Extra user prompt: $ARGUMENTS
 
 ## Template
 
-Use the template from the `feature-specs` skill:
-`lefant/skills/feature-specs/template.md`
+Use the template from the `feature-specs` skill (installed from `lefant/agent-skills`).
 
 ## Interactive Flow
 

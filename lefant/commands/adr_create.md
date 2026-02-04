@@ -32,8 +32,7 @@ Extra user prompt: $ARGUMENTS
 
 ## Template
 
-Use the template from the `architecture-decision-records` skill:
-`lefant/skills/architecture-decision-records/template.md`
+Use the template from the `architecture-decision-records` skill (installed from `lefant/agent-skills`).
 
 ## Process
 

@@ -26,7 +26,7 @@ Extra user prompt: $ARGUMENTS
 
 ## Prerequisites
 
-This command uses the `/github-access` skill (`github-access/skills/github-access/SKILL.md`) for GitHub operations. Ensure:
+This command uses the `github-access` skill (installed from `lefant/agent-skills`) for GitHub operations. Ensure:
 - `GH_TOKEN` environment variable is set
 - `gh` CLI is available (preferred) or `curl` as fallback
 

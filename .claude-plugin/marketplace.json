@@ -1,23 +1,14 @@
 {
   "name": "lefant-claude-code-plugins",
+  "description": "Claude Code plugins for development workflows",
   "owner": {
     "name": "Fabian Linzberger"
   },
   "plugins": [
     {
-      "name": "beads",
-      "source": "./beads",
-      "description": "Beads plugin with skill instead of MCP server"
-    },
-    {
-      "name": "github-access",
-      "source": "./github-access",
-      "description": "GitHub access Skill with gh/REST paths"
-    },
-    {
       "name": "lefant",
       "source": "./lefant",
-      "description": "Utility commands: devlog and handover"
+      "description": "Development commands: /devlog, /handover, /adr, /changelog, /spec"
     },
     {
       "name": "ntfy",
@@ -27,12 +18,7 @@
     {
       "name": "rpi",
       "source": "./rpi",
-      "description": "HumanLayer-style research/plan/implement agents and commands"
-    },
-    {
-      "name": "sentry",
-      "source": "./sentry",
-      "description": "Fetch and analyze Sentry issues, events, transactions, and logs"
+      "description": "Research/Plan/Implement workflow with specialized agents"
     }
   ]
 }
