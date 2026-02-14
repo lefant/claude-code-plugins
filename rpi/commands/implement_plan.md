@@ -47,23 +47,30 @@ After implementing a phase:
 - Fix any issues before proceeding
 - Update your progress in both the plan and your todos
 - Check off completed items in the plan file itself using Edit
-- **Pause for human verification**: After completing all automated verification for a phase, pause and inform the human that the phase is ready for manual testing. Use this format:
+- **If the plan has manual verification items for this phase**, pause and inform the human:
   ```
   Phase [N] Complete - Ready for Manual Verification
 
   Automated verification passed:
   - [List automated checks that passed]
 
-  Please perform the manual verification steps listed in the plan:
-  - [List manual verification items from the plan]
+  Manual verification items from the plan:
+  - [List manual verification items]
 
   Let me know when manual testing is complete so I can proceed to Phase [N+1].
   ```
+  Do not check off manual verification items until confirmed by the user.
+- **If the phase has no manual verification items**, proceed directly to the next phase after automated checks pass.
 
-If instructed to execute multiple phases consecutively, skip the pause until the last phase. Otherwise, assume you are just doing one phase.
+## After Each Phase
 
-do not check off items in the manual testing steps until confirmed by the user.
+After a phase passes verification (and manual confirmation if applicable):
 
+1. **Commit the changes**: Create a git commit with a clear message referencing the plan and phase, e.g. `"plan: <plan-name> - phase N: <brief description>"`. Commit all files changed in the phase.
+
+2. **Update plan status**: Check off all completed automated verification items in the plan file using Edit. Update any status metadata in the plan frontmatter if present.
+
+3. **Write a devlog entry** (if a devlog skill/command is available, e.g. `/lefant:devlog`): After the final phase (or when pausing for manual verification on a significant milestone), write a devlog entry summarizing what was implemented, any deviations from plan, and learnings. Use `--wip` if the plan is not fully complete yet.
 
 ## If You Get Stuck
 

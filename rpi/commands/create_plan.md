@@ -226,13 +226,8 @@ After structure approval:
 - [ ] Linting passes
 - [ ] Integration tests pass
 
-#### Manual Verification:
-- [ ] Feature works as expected when tested via UI
-- [ ] Performance is acceptable under load
-- [ ] Edge case handling verified manually
-- [ ] No regressions in related features
-
-**Implementation Note**: After completing this phase and all automated verification passes, pause here for manual confirmation from the human that the manual testing was successful before proceeding to the next phase.
+#### Manual Verification (only if needed):
+- [ ] [List ONLY items that truly cannot be verified programmatically]
 
 ---
 
@@ -251,10 +246,8 @@ After structure approval:
 ### Integration Tests:
 - [End-to-end scenarios]
 
-### Manual Testing Steps:
-1. [Specific step to verify feature]
-2. [Another verification step]
-3. [Edge case to test manually]
+### Manual Testing Steps (only if needed):
+- [Only list steps that truly cannot be automated]
 
 ## Performance Considerations
 
@@ -288,7 +281,7 @@ After structure approval:
 2. **Iterate based on feedback** - be ready to:
    - Add missing phases
    - Adjust technical approach
-   - Clarify success criteria (both automated and manual)
+   - Clarify success criteria (prefer automated verification)
    - Add/remove scope items
 
 3. **Continue refining** until the user is satisfied
@@ -311,7 +304,7 @@ After structure approval:
    - Read all context files COMPLETELY before planning
    - Research actual code patterns using parallel sub-tasks
    - Include specific file paths and line numbers
-   - Write measurable success criteria with clear automated vs manual distinction
+   - Write measurable success criteria, strongly preferring automated programmatic verification
 
 4. **Be Practical**:
    - Focus on incremental, testable changes
@@ -333,19 +326,20 @@ After structure approval:
 
 ## Success Criteria Guidelines
 
-**Always separate success criteria into two categories:**
+**Strongly prefer automated, programmatic verification.** Every success criterion should ideally be a command that can be run and checked automatically. Manual verification should be the exception, not the rule.
 
-1. **Automated Verification** (can be run by execution agents):
-   - Commands that can be run: `npm run lint`, etc.
+1. **Automated Verification** (strongly preferred):
+   - Commands that can be run: `npm run lint`, `go test ./...`, etc.
    - Specific files that should exist
    - Code compilation/type checking
-   - Automated test suites
+   - Automated test suites (unit, integration, e2e)
+   - API endpoint checks via curl/scripts
+   - Write new automated tests to cover the changes rather than relying on manual verification
 
-2. **Manual Verification** (requires human testing):
-   - UI/UX functionality
-   - Performance under real conditions
-   - Edge cases that are hard to automate
-   - User acceptance criteria
+2. **Manual Verification** (only when automation is truly impractical):
+   - Only include when there is no reasonable way to verify programmatically
+   - Examples: subjective visual design review, physical device testing
+   - Do NOT default to manual verification for things that can be tested with scripts, e2e tests, or API calls
 
 **Format example:**
 ```markdown
@@ -355,12 +349,8 @@ After structure approval:
 - [ ] All unit tests pass: `go test ./...`
 - [ ] No linting errors: `golangci-lint run`
 - [ ] API endpoint returns 200: `curl localhost:8080/api/new-endpoint`
-
-#### Manual Verification:
-- [ ] New feature appears correctly in the UI
-- [ ] Performance is acceptable with 1000+ items
-- [ ] Error messages are user-friendly
-- [ ] Feature works correctly on mobile devices
+- [ ] New integration test passes: `go test ./tests/integration/...`
+- [ ] E2E test covers the new flow: `npx playwright test new-feature.spec.ts`
 ```
 
 ## Common Patterns
