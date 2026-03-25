@@ -6,11 +6,6 @@
   },
   "plugins": [
     {
-      "name": "lefant",
-      "source": "./lefant",
-      "description": "Development commands: /devlog, /handover, /adr, /changelog, /spec"
-    },
-    {
       "name": "ntfy",
       "source": "./ntfy",
       "description": "Send Claude Code notifications via ntfy"

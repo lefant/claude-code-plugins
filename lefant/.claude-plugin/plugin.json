@@ -1,9 +1,9 @@
 {
   "name": "lefant",
   "version": "0.4.0",
-  "description": "lefant ai coding helpers. /devlog, /handover, /adr, /changelog, /spec commands.",
+  "description": "Deprecated placeholder plugin. Lefant command workflows have moved to lefant/agent-skills.",
   "author": {
     "name": "Fabian Linzberger"
   },
-  "keywords": ["devlog", "handover", "adr", "changelog", "spec", "commands"]
+  "keywords": ["deprecated", "skills", "migration"]
 }
